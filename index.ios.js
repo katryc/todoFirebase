@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 var React = require('react-native');
 var Firebase = require('firebase');
 var {
@@ -34,15 +34,9 @@ class todoFirebase extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-
-        </Text>
         <Text style={styles.instructions}>
           Hello from my second React-native APP
-        </Text>
-        <Text style={styles.instructions}>
-
-        </Text>
+        </Text>        
       </View>
     );
   }
