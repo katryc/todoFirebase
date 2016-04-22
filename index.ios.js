@@ -20,8 +20,17 @@ class todoFirebase extends Component {
     super(props);
     var myFirebaseRef = new Firebase('https://glowing-fire-5624.firebaseio.com');
 
-    
-  }
+
+    this.itemsRef = myFirebaseRef.child('items');
+
+    this.state = {
+      newTodo: '',
+      todoSource: new ListView.DataSource({rowHasChanged: (row1, row2) => row != row2})};
+
+      this.items = [];
+
+}
+
   render() {
     return (
       <View style={styles.container}>
@@ -44,7 +53,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#64ffda',
   },
   welcome: {
     fontSize: 20,
@@ -54,7 +63,7 @@ const styles = StyleSheet.create({
   instructions: {
     textAlign: 'center',
     color: '#333333',
-    marginBottom: 5,
+    marginBottom: 100 ,
   },
 });
 
