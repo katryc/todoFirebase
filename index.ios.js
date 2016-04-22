@@ -58,6 +58,10 @@ class todoFirebase extends Component {
      }
    }
 
+   removeTodo() {
+     this.itemsRef.child(rowData.id).remove();
+   }
+
   render() {
     return (
       <View style={styles.container}>
