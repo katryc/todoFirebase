@@ -11,6 +11,7 @@ var {
   TouchableHighlight,
   TextInput,
   ListView
+
 } =React;
 
 
@@ -19,7 +20,6 @@ class todoFirebase extends Component {
   constructor(props){
     super(props);
     var myFirebaseRef = new Firebase('https://glowing-fire-5624.firebaseio.com');
-
 
     this.itemsRef = myFirebaseRef.child('items');
 
@@ -30,13 +30,22 @@ class todoFirebase extends Component {
       this.items = [];
 
 }
+   componentDidMount() {
+        this.itemsRef.on('child_added', (dataSnapshot) => {
+          this.items.push({id: dataSnapshot.key(), text: dataSnapshot.val()});
+          this.setState({
+            todoSource: this.state.todoSource.cloneWithRows(this.itmes)
+          });
+        });
+
+   }
 
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.instructions}>
           Hello from my second React-native APP
-        </Text>        
+        </Text>
       </View>
     );
   }
