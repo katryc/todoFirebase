@@ -47,6 +47,17 @@ class todoFirebase extends Component {
 
    }
 
+   addTodo() {
+     if(this.state.newTodo !== '') {
+       this.itemsRef.push({
+         todo: this.state.newTodo
+       });
+       this.setState({
+         newTodo: ''
+       });
+     }
+   }
+
   render() {
     return (
       <View style={styles.container}>
