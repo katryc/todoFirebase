@@ -38,6 +38,13 @@ class todoFirebase extends Component {
           });
         });
 
+        this.itemsRef.on('child_removed', (dataSnapshot) => {
+          this.items = this.items.filter((x) => x.id != dataSnapshot.key());
+          this.setState({
+            todoSource: this.state.todoSource.cloneWithRows(this.itmes)
+          });
+        });
+
    }
 
   render() {
@@ -47,8 +54,7 @@ class todoFirebase extends Component {
           Hello from my second React-native APP
         </Text>
       </View>
-    );
-  }
+    );}
 }
 
 const styles = StyleSheet.create({
