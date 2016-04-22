@@ -1,6 +1,8 @@
 'use strict'
-import React, {
-  
+var React = require('react-native');
+var Firebase = require('firebase');
+var {
+
   AppRegistry,
   Component,
   StyleSheet,
@@ -9,9 +11,17 @@ import React, {
   TouchableHighlight,
   TextInput,
   ListView
-} from 'react-native';
+} =React;
+
+
 
 class todoFirebase extends Component {
+  constructor(props){
+    super(props);
+    var myFirebaseRef = new Firebase('https://glowing-fire-5624.firebaseio.com');
+
+    
+  }
   render() {
     return (
       <View style={styles.container}>
